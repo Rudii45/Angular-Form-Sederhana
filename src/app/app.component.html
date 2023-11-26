@@ -22,7 +22,7 @@
         <div class="col-md-6">
         <mat-form-field class="full-width">
           <mat-label>Negara</mat-label>
-          <mat-select [formControl]="toppings">
+          <mat-select [formControl]="toppings" matInput placeholder="Negara">
             <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
           </mat-select>
         </mat-form-field>

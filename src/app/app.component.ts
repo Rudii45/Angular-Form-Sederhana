@@ -11,10 +11,16 @@ import {FormControl} from '@angular/forms';
 })
 export class AppComponent {
 
-toppings = new FormControl('');
+  toppings = new FormControl('');
   toppingList: string[] = ['INDONESIA', 'AMERIKA', 'RUSIA', 'INDIA', 'KOREA', 'ARAB'];
 
- constructor(private formBuilder:FormBuilder){}
+ constructor(private formBuilder:FormBuilder){
+  this.toppings.valueChanges.subscribe(selectedValue => {
+    this.profileForm.patchValue({
+      Negara: selectedValue
+    });
+  });
+ }
 
  profileForm = this.formBuilder.group({
    Nama:[''],
@@ -23,7 +29,7 @@ toppings = new FormControl('');
    Negara:[''],
    Nomor:[''],
    Tgl:[''],
-   Gender:[''],
+   Gender:['']
  });
 
 
